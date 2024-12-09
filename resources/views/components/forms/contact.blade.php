@@ -16,7 +16,7 @@
         @endif
     </div>
     <div class="mb-3">
-        <label for="name"
+        <label for="contact"
             class="form-label">Contact</label>
         <input type="text"
             class="form-control @if ($errors->has('contact')) is-invalid @endif"
@@ -31,7 +31,7 @@
         @endif
     </div>
     <div class="mb-3">
-        <label for="name"
+        <label for="email"
             class="form-label">E-mail</label>
         <input type="email"
             class="form-control @if ($errors->has('email')) is-invalid @endif"
