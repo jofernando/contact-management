@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FakeAuth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/contacts');
 
-Route::resource('contacts', ContactController::class);
+Route::get('/login', [FakeAuth::class, 'login'])->name('login');
+Route::post('/login', [FakeAuth::class, 'fakeLogin'])->name('fakeLogin');
+Route::get('/logout', [FakeAuth::class, 'logout'])->name('logout')->middleware('auth');
+
+Route::resource('contacts', ContactController::class)->middleware('auth')->except('index');
+Route::get('contacts', [ContactController::class, 'index'])->name('contacts.index');

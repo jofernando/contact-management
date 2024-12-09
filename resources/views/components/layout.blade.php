@@ -30,9 +30,14 @@
                 <a class="nav-link active" aria-current="page" href="{{ route('contacts.create') }}"> {{ __('Novo Contact') }}</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <button class="btn btn-outline-success" type="submit">Login</button>
-            </form>
+            @guest
+                <form action="{{ route('fakeLogin') }}" method="POST">
+                    @csrf
+                    <button class="btn btn-outline-success" type="submit">{{ __('Login') }}</button>
+                </form>
+            @else
+                <a class="btn btn-outline-success" href="{{ route('logout') }}">{{ __('Logout') }}</a>
+            @endguest
           </div>
         </div>
       </nav>
@@ -41,6 +46,7 @@
 
         <div class="container">
             <x-alert-success />
+            <x-alert-warning />
             {{ $slot }}
         </div>
     </main>
