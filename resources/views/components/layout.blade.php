@@ -26,9 +26,9 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              {{-- <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ route('contacts.index') }}">Contacts</a>
-              </li> --}}
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ route('contacts.create') }}"> {{ __('Novo Contact') }}</a>
+              </li>
             </ul>
             <form class="d-flex">
               <button class="btn btn-outline-success" type="submit">Login</button>
