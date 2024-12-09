@@ -23,7 +23,9 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        $contact = new Contact();
+
+        return view('contacts.create', compact('contact'));
     }
 
     /**
@@ -31,7 +33,9 @@ class ContactController extends Controller
      */
     public function store(StoreContactRequest $request)
     {
-        //
+        $contact = Contact::create($request->validated());
+
+        return redirect(route('contacts.show', $contact->id))->with('success', 'Contact salvo.');
     }
 
     /**
