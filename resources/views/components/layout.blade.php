@@ -26,9 +26,11 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ route('contacts.create') }}"> {{ __('Novo Contact') }}</a>
-              </li>
+              @auth
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{{ route('contacts.create') }}"> {{ __('Novo Contact') }}</a>
+                </li>
+              @endauth
             </ul>
             @guest
                 <form action="{{ route('fakeLogin') }}" method="POST">
