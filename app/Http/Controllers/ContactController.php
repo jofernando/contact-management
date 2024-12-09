@@ -47,7 +47,7 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+        return view('contacts.edit', compact('contact'));
     }
 
     /**
@@ -55,7 +55,10 @@ class ContactController extends Controller
      */
     public function update(UpdateContactRequest $request, Contact $contact)
     {
-        //
+        $contact->fill($request->validated());
+        $contact->update();
+
+        return redirect(route('contacts.edit', $contact->id))->with('success', 'Contact salvo.');
     }
 
     /**
