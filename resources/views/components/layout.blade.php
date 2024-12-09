@@ -38,7 +38,9 @@
       </nav>
 
     <main>
+
         <div class="container">
+            <x-alert-success />
             {{ $slot }}
         </div>
     </main>

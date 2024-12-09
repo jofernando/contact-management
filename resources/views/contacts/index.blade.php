@@ -1,5 +1,4 @@
 <x-layout>
-    <x-alert-success />
     <table class="table">
         <thead>
             <tr>

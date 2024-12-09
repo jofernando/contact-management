@@ -1,5 +1,4 @@
 <x-layout>
-    <x-alert-success />
     <form action="{{ route('contacts.update', $contact->id) }}" method="POST" id="contact-update">
         @method('PUT')
         @csrf
